@@ -1,0 +1,32 @@
+.background-color {
+  background-color: #D8F3DC
+
+}
+
+.search-button {
+  background-color: #2D6A4F;
+  color:#000000
+}
+
+/*input color*/
+.color {
+  background-color:#B7E4C7;
+  border-color:#1B4332
+}
+
+.background-color-login {
+  background-color:#52B788;
+  border-radius:20px;
+}
+
+.padding {
+  padding:0;
+}
+
+.telco-logo {
+  border-radius: 40px;
+    padding: 0.5rem;
+    /* width: 100%; */
+    height: 65px;
+    object-fit: cover;
+}

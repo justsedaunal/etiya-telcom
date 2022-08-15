@@ -1,0 +1,59 @@
+<app-dashboard-layout>
+
+
+
+
+  <app-list-skeleton *ngIf="isLoading" ></app-list-skeleton>
+
+<table class="table table-success table-striped mt-5" *ngIf="!isLoading">
+  <thead>
+    <tr class="text-center" >
+      <th  scope="col">Id</th>
+      <th scope="col">Services</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let service of serviceList | pagination: currentPage ">
+      <td class="text-center" >{{ service.id }}</td>
+      <td class="text-center" >{{ service.name }}</td>
+      <td class="d-flex justify-content-evenly" >
+        <button class="btn btn-success" routerLink="/add">
+          <i class="bi bi-plus-circle-fill"></i>
+        </button>
+        <button routerLink="/update-service/{{service.id}}"  class="btn btn-primary">
+          <i class="bi bi-pencil-fill"></i>
+        </button>
+        <button  (click)="deleteService(service)" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- {{serviceList.length}} adet ürün var. <br>
+
+
+Sayfa Numarası: {{pageNumber}} <br>
+
+
+Current Page: {{currentPage}} <br><br> -->
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li
+    *ngIf="currentPage > 0"
+    (click)="back()" class="page-item"><a class="page-link" href="#">Back</a></li>
+
+    <ng-container *ngFor="let index of pageNumber | enumrate ">
+      <li class="page-item"  (click)="currentPage = index" ><a class="page-link" href="#">{{index+1}}</a></li>
+    </ng-container>
+
+
+    <li
+    *ngIf="currentPage < pageNumber-1"
+    (click)="next()" class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
+
+</app-dashboard-layout>
+<!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->

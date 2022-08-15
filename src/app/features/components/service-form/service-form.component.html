@@ -1,0 +1,17 @@
+<app-main-layout>
+
+<form [formGroup]="serviceForm"(ngSubmit)="save()" *ngIf="serviceForm" >
+  <div class="mb-3">
+    <label for="name" class="form-label">name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputEmail1"
+      formControlName="name"
+    />
+  </div>
+
+  <button type="submit"  class="btn btn-success">Submit</button>
+</form>
+
+</app-main-layout>
